@@ -1,28 +1,34 @@
 import P from 'prop-types'
 import './App.css';
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useContext,  } from 'react';
 
 const globalState = {
   title: 'o titulo que contexto',
   counter: 0
 }
 
+const GlobalContext = React.createContext()
+
 const Div = ({children}) => {
   return(
-    <div className='App'>{children}</div>
+    <H1>Oi</H1>
+  )
+}
+
+const H1 = ({}) => {
+  const theContext = useContext(GlobalContext)
+  console.log(theContext)
+  return(
+    <h1 className='App'>{theContext.title}</h1>
   )
 }
 
 function App() {
 
-    const GlobalContext = React.createContext()
-  
   return (
-      
-      <div className='App'>
-            <h1>Oi</h1>
-       
-      </div>
+      <GlobalContext.Provider value={globalState}>
+        <Div />
+      </GlobalContext.Provider>
    
       );
 }
