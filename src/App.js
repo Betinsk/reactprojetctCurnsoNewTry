@@ -1,12 +1,17 @@
-import P from 'prop-types'
 import './App.css';
+<<<<<<< HEAD
 import React, { useState, useEffect, useMemo, useRef, useContext,  } from 'react';
+=======
+import React, { useState, useEffect, useMemo, useRef, useContext, createContext } from 'react';
 
-const globalState = {
-  title: 'o titulo que contexto',
-  counter: 0
-}
 
+
+
+
+>>>>>>> ddea69fa7c48f636863aaf5ef77f2f5abe823be7
+
+
+<<<<<<< HEAD
 const GlobalContext = React.createContext()
 
 const Div = ({children}) => {
@@ -27,6 +32,16 @@ function App() {
 
   return (
       <GlobalContext.Provider value={globalState}>
+=======
+
+function App() {
+
+    const [contextState, setContextState] = useState(globalState)
+  
+  return (
+     
+      <GlobalContext.Provider value={{contextState, setContextState}}>
+>>>>>>> ddea69fa7c48f636863aaf5ef77f2f5abe823be7
         <Div />
       </GlobalContext.Provider>
    
