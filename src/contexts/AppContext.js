@@ -1,7 +1,14 @@
-import { createContext } from "react"
+import { createContext, useState } from "react"
 
-const GlobalContext = createContext()
+import { globalState } from "./data"
+
+export const GlobalContext = createContext()
 
 export const AppContext = ({children}) => {
-    return <GlobalContext.Provider></GlobalContext.Provider>
+
+    const[contextState, setState] = useState(globalState)
+
+    return <GlobalContext.Provider value={{contextState, setState}}>
+        {children}
+        </GlobalContext.Provider>
 }
